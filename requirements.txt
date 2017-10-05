@@ -1,6 +1,6 @@
 nltk
 app
-newspaper3k
+#newspaper3k # currently not being used
 Flask-SQLAlchemy
 Flask
 sqlalchemy

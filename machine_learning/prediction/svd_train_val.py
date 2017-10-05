@@ -32,7 +32,7 @@ BATCH_SIZE = 1000
 USER_NUM = 6040
 ITEM_NUM = 3952
 DIM = 15
-EPOCH_MAX = 2  # Originally set to 100, currently set to 10 for faster testing.
+EPOCH_MAX = 10  # Originally set to 100, currently set to 10 for faster testing.
 DEVICE = "/cpu:0"
 
 
@@ -95,7 +95,10 @@ def svd(train, test):
     init_op = tf.global_variables_initializer()
     with tf.Session() as sess:
         sess.run(init_op)
-        summary_writer = tf.summary.FileWriter(logdir="/ml-1m", graph=sess.graph)
+        fileDir = os.path.dirname(os.path.realpath('__file__'))
+        filename = os.path.join(fileDir, '../machine_learning/prediction/ml-1m')
+        filename = os.path.abspath(os.path.realpath(filename))
+        summary_writer = tf.summary.FileWriter(logdir=filename, graph=sess.graph)
         print("{} {} {} {}".format("epoch", "train_error", "val_error", "elapsed_time"))
         errors = deque(maxlen=samples_per_batch)
         start = time.time()

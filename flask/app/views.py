@@ -7,7 +7,7 @@ from machine_learning.prediction.svd_train_val import get_rating
 
 @app.route('/')
 def index():
-    return render_template('loginView.html');
+    return redirect(url_for('login'));
 
 @app.route('/operatorView')
 def operator_view():
