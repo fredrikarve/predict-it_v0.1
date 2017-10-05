@@ -1,0 +1,11 @@
+nltk
+app
+newspaper3k
+Flask-SQLAlchemy
+Flask
+sqlalchemy
+db
+jinja2
+numpy
+pandas
+tensorflow
